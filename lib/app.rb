@@ -1,20 +1,29 @@
 require 'sinatra/base'
-
+require './model/store.rb'
 class DBserver < Sinatra::Base
   set :port, 4000
 
+  before do
+    @store = Store.return
+  end
+
   get '/' do
-    'Hello Server!'
+    @store = Store.init
+    redirect '/set'
   end
 
   get '/set' do
-    'Hello again!'
+    Store.create(params)
+    "You saved: #{params}"
   end
 
   get '/get' do
-    'We really need to stop meeting like this'
-  end
+    key = params[:key]
+    result = Store.find(key)
 
+
+    "#{result}"
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

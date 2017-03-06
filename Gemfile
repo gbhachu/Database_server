@@ -2,12 +2,14 @@
 source "https://rubygems.org"
 
 
-gem "sinatra"
+ruby '2.3.3'
 
 group :test do
   gem 'rspec'
-  gem 'rspec-sinatra'
-  gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'coveralls', require: false
 end
+
+gem 'rspec-sinatra'
+gem 'rake'
+gem 'capybara'
+gem 'sinatra'
