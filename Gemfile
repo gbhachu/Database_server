@@ -9,4 +9,5 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'coveralls', require: false
 end
